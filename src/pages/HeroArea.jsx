@@ -12,7 +12,7 @@ export default function HeroArea() {
                 </div>
                 <div className="d-flex gap-2">
                     <a href="https://ravipatelctf@gmail.com" className="btn btn-success fw-bold py-2 px-4">Contact Me</a>
-                    <a href="https://github.com/ravipatelctf" className="btn btn-outline-secondary fw-bold py-2 px-4">Resume</a> 
+                    <a href="https://drive.google.com/drive/folders/1lZZxK14I-rh2M-bVVVn11RHaQST-jvGT?usp=drive_link" className="btn btn-outline-secondary fw-bold py-2 px-4">Resume</a> 
                 </div>
             </section>
         </div>
