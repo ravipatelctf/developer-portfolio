@@ -7,8 +7,8 @@ export default function HeroArea() {
                 <p className="text-white-50 fs-3">full stack dev</p>
                 <div className="border border-2 border-success w-25 my-4"></div>
                 <div className="row">
-                    <p className="text-light fs-5 col-7">Passionate full-stack developer crafting intuitive digital experiences with modern technologies.</p>
-                    <p className="text-light fs-5 col-7">Specializing in React, Node.js, and MongoDB to build scalable and user-centered applications.</p>
+                    <p className="text-light fs-5 col-7">Aspiring full-stack web developer, involved in coding web apps using MERN stack technologies throughout day and night.</p>
+                    <p className="text-light fs-5 col-7">Specializing in MongoDB, Express.js, React and Node.js to build scalable and user-centered applications.</p>
                 </div>
                 <div className="d-flex gap-2">
                     <a href="https://ravipatelctf@gmail.com" className="btn btn-success fw-bold py-2 px-4">Contact Me</a>
