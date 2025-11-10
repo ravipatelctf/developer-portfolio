@@ -6,7 +6,7 @@ function SkillCard({children, cardlink, logoLabel, cardText}) {
     return (
         <>
         <div className="col-md-6 mb-2">
-            <a href={cardlink} className="card bg-dark tech-card">
+            <a href={cardlink} target="_blank" className="card bg-dark tech-card">
                 <div className="card-body pb-4 d-flex align-items-center gap-3">
                     <span>{children}</span>
                     <span className="text-white fs-5 fw-bold">{logoLabel}</span>                  

@@ -10,7 +10,7 @@ export default function Header() {
                 <span className="text-white fs-4 fw-bold">"Patel"</span>
                 <span className="text-success fw-bold fs-4">{`]`}</span>
             </div>
-            <a href="https://github.com/ravipatelctf/developer-portfolio"><FaGithub size={25} color="white" /></a>
+            <a href="https://github.com/ravipatelctf/developer-portfolio" target="_blank"><FaGithub size={25} color="white" /></a>
         </div>
     )
 }
