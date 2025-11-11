@@ -21,7 +21,7 @@ export default function Spotify() {
     }, []);
 
 
-    function handleSpotify() {
+    async function handleSpotify() {
         window.location.href = `${BASE_URL}/login`;
     }
 
@@ -74,8 +74,8 @@ export default function Spotify() {
                 <h2 className="text-white text-center display-1 fw-bold">My Spotify Info</h2>
                 <div className="d-flex gap-2 d-flex justify-content-center">
                     <button onClick={handleSpotify} className="btn btn-primary fw-bold btn-sm">Refresh</button>
-                    {/* <button onClick={getTopTracks} className="btn btn-primary fw-bold btn-sm">Get Top Tracks</button>
-                    <button onClick={getCurrentlyPlayingSong} className="btn btn-primary fw-bold btn-sm">Get Currenty Playing song</button> */}
+                    <button onClick={getTopTracks} className="btn btn-primary fw-bold btn-sm">Get Top Tracks</button>
+                    <button onClick={getCurrentlyPlayingSong} className="btn btn-primary fw-bold btn-sm">Get Currenty Playing song</button>
                 </div>
                 <section className="py-4 row">
                 <div className="col-lg-4 col-md-6 mb-2">
