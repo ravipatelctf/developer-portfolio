@@ -21,21 +21,24 @@ const PORT = process.env.PORT || 8000;
 app.get('/login', function(req, res) {
 
   const scope = 'user-read-private user-read-email user-top-read user-read-currently-playing user-follow-read';
-
-  res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: process.env.SPOTIFY_CLIENT_ID,
-      scope: scope,
-      redirect_uri: process.env.SPOTIFY_REDIRECT_URI
-    }));
+  try {
+    res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: scope,
+        redirect_uri: process.env.SPOTIFY_REDIRECT_URI
+      })); 
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 
 app.get('/callback', async function(req, res) {
 
   const code = req.query.code || null;
-
+  try {
     const callbackResponse = await axios.post(`https://accounts.spotify.com/api/token`, 
       {
         code: code,
@@ -51,39 +54,54 @@ app.get('/callback', async function(req, res) {
     )
     res.cookie("access_token", callbackResponse.data.access_token);
     res.redirect(`${process.env.FRONTEND_URL}/spotify`);
+  } catch (error) {
+    console.error(error)
+  }
   });
 
 app.get("/spotify/top-ten-tracks", async (req, res) => {
-  const accessToken = req.cookies.access_token;
-  const response = await axios.get('https://api.spotify.com/v1/me/top/tracks?limit=10', {
-      headers: {
-          Authorization: 'Bearer ' + accessToken
-      }
-  });
-  // console.log("top tracks:", response.data);
-  res.status(200).json(response.data)
+  try {
+    const accessToken = req.cookies.access_token;
+    const response = await axios.get('https://api.spotify.com/v1/me/top/tracks?limit=10', {
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        }
+    });
+    // console.log("top tracks:", response.data);
+    res.status(200).json(response.data); 
+  } catch (error) {
+    console.error(error);
+  }
 })
 
 app.get("/spotify/currently-playing-song", async (req, res) => {
-  const accessToken = req.cookies.access_token;
-  const response = await axios.get(`https://api.spotify.com/v1/me/player/currently-playing`, {
-      headers: {
-          Authorization: 'Bearer ' + accessToken
-      }
-  });
-  // console.log("currently playing song:", response.data);
-  res.status(200).json(response.data)
+  try {
+    const accessToken = req.cookies.access_token;
+    const response = await axios.get(`https://api.spotify.com/v1/me/player/currently-playing`, {
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        }
+    });
+    // console.log("currently playing song:", response.data);
+    res.status(200).json(response.data); 
+  } catch (error) {
+    console.error(error);
+  }
 })
 
 app.get("/spotify/followed-artists", async (req, res) => {
-  const accessToken = req.cookies.access_token;
-  const response = await axios.get(`https://api.spotify.com/v1/me/following?type=artist`, {
-      headers: {
-          Authorization: 'Bearer ' + accessToken
-      }
-  });
-  // console.log("followed artists:", response.data);
-  res.status(200).json(response.data)
+  try {
+    const accessToken = req.cookies.access_token;
+    const response = await axios.get(`https://api.spotify.com/v1/me/following?type=artist`, {
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        }
+    });
+    // console.log("followed artists:", response.data);
+    res.status(200).json(response.data); 
+  } catch (error) {
+    console.error(error);
+  }
 })
 
 
