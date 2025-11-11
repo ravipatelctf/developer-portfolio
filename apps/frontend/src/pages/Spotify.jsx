@@ -10,6 +10,8 @@ export default function Spotify() {
     const [currentlyPlayingSong, setCurrentlyPlayingSong] = useState(null);
     const [followedArtists, setFollowedArtists] = useState(null);
 
+    const BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             handleSpotify();
@@ -20,7 +22,7 @@ export default function Spotify() {
 
 
     function handleSpotify() {
-        window.location.href = `http://127.0.0.1:3000/login`;
+        window.location.href = `${BASE_URL}/login`;
     }
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function Spotify() {
 
     async function getTopTracks() {
         try {
-            const response = await axios.get("http://127.0.0.1:3000/spotify/top-ten-tracks", {
+            const response = await axios.get(`${BASE_URL}/spotify/top-ten-tracks`, {
                 withCredentials: true,
             });
             // console.log("Top 10 Tracks:", response.data.items);
@@ -43,7 +45,7 @@ export default function Spotify() {
 
     async function getCurrentlyPlayingSong() {
         try {
-            const response = await axios.get("http://127.0.0.1:3000/spotify/currently-playing-song", {
+            const response = await axios.get(`${BASE_URL}/spotify/currently-playing-song`, {
                 withCredentials: true,
             });
             // console.log("currently playing song:", response.data.item.album.images);
@@ -55,7 +57,7 @@ export default function Spotify() {
 
     async function getFollowedArtistsList() {
         try {
-            const response = await axios.get("http://127.0.0.1:3000/spotify/followed-artists", {
+            const response = await axios.get(`${BASE_URL}/spotify/followed-artists`, {
                 withCredentials: true,
             });
             // console.log("followed artists:", response.data.artists.items);

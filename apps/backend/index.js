@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "http://127.0.0.1:5173",
+  origin: ["http://127.0.0.1:5173", "https://ravipatelctf.vercel.app"],
   credentials: true,
 }))
 
@@ -50,7 +50,7 @@ app.get('/callback', async function(req, res) {
       }
     )
     res.cookie("access_token", callbackResponse.data.access_token);
-    res.redirect(`http://127.0.0.1:5173/spotify`);
+    res.redirect(`${process.env.FRONTEND_URL}/spotify`);
   });
 
 app.get("/spotify/top-ten-tracks", async (req, res) => {
