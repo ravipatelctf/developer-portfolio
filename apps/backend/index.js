@@ -52,7 +52,11 @@ app.get('/callback', async function(req, res) {
         }
       }
     )
-    res.cookie("access_token", callbackResponse.data.access_token);
+    res.cookie("access_token", callbackResponse.data.access_token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
     res.redirect(`${process.env.FRONTEND_URL}/spotify`);
   } catch (error) {
     console.error(error)
