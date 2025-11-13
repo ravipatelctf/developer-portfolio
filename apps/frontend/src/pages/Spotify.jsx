@@ -5,7 +5,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 
 export default function Spotify() {
-    const [currentSong, setCurrentSong] = useState({});
+    const [currentSong, setCurrentSong] = useState(null);
     const [topTracks, setTopTracks] = useState({});
     const [followingArtists, setFollowingArtists] = useState({});
 
@@ -28,7 +28,7 @@ export default function Spotify() {
         const response = await axios.get(`${SERVER_BASE_URL}/currently-playing-song`, {
             withCredentials: true,
         });
-        // console.log("current song:", response.data)
+        // console.log("current song:", response.data);
         setCurrentSong(response.data);
     }
 
@@ -60,22 +60,30 @@ export default function Spotify() {
                         <div className="col-md-6 col-lg-4 mb-4">
                             <div className="card bg-black text-white border p-4">
                                 <h5 className="text-center mb-2">Currently Playing Song</h5>
-                                <div className="mb-4">
-                                {
-                                    currentSong?.item?.album?.images?.slice(0, 1).map((image, index) => (
-                                        <img key={index} src={image?.url} alt={`${currentSong?.item?.name} song image`} className="rounded img-fluid" />
-                                    ))
-                                }
-                                </div>
-                                <p><strong>Song: </strong>{currentSong?.item?.name}</p>
-                                <p>
-                                    <span className="fw-bold">Artists: </span>
-                                    <span>
+                                { currentSong ?
+                                (
+                                <div>
+                                    <div className="mb-4">
                                     {
-                                        currentSong?.item?.artists?.map(artist => artist?.name).join(", ")
+                                        currentSong?.item?.album?.images?.slice(0, 1).map((image, index) => (
+                                            <img key={index} src={image?.url} alt={`${currentSong?.item?.name} song image`} className="rounded img-fluid" />
+                                        ))
                                     }
-                                    </span>
-                                </p>
+                                    </div>
+                                    <p><strong>Song: </strong>{currentSong?.item?.name}</p>
+                                    <p>
+                                        <span className="fw-bold">Artists: </span>
+                                        <span>
+                                        {
+                                            currentSong?.item?.artists?.map(artist => artist?.name).join(", ")
+                                        }
+                                        </span>
+                                    </p>
+                                </div>
+                                ) : (
+                                    <p>No Song Playing</p>
+                                )
+                                } 
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4 mb-4">
