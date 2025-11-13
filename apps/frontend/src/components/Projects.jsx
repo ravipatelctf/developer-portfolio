@@ -28,8 +28,8 @@ export default function Projects() {
                                     <span className="rounded bg-secondary px-2 fw-bold"><small>Stripe</small></span>
                                 </p>
                                 <div className="d-flex justify-content-between px-2 gap-5 fw-bold">
-                                    <a href="https://tutordirectory.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
-                                    <a href="https://github.com/ravipatelctf/frontend-tdp" className="text-decoration-none text-white">{`</>`} Code</a>
+                                    <a target="_blank" href="https://tutordirectory.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
+                                    <a target="_blank" href="https://github.com/ravipatelctf/frontend-tdp" className="text-decoration-none text-white">{`</>`} Code</a>
                                 </div>
                             </div>
                         </div>
@@ -52,8 +52,8 @@ export default function Projects() {
                                     <span className="rounded bg-secondary px-2 fw-bold"><small>Stripe</small></span>
                                 </p>
                                 <div className="d-flex justify-content-between px-2 gap-5 fw-bold">
-                                    <a href="https://frontend-mp1.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
-                                    <a href="https://github.com/ravipatelctf/frontend-mp1" className="text-decoration-none text-white">{`</>`} Code</a>
+                                    <a target="_blank" href="https://frontend-mp1.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
+                                    <a target="_blank" href="https://github.com/ravipatelctf/frontend-mp1" className="text-decoration-none text-white">{`</>`} Code</a>
                                 </div>
                             </div>
                         </div>
@@ -76,8 +76,8 @@ export default function Projects() {
                                     <span className="rounded bg-secondary px-2 fw-bold"><small>Stripe</small></span>
                                 </p>
                                 <div className="d-flex justify-content-between px-2 gap-5 fw-bold">
-                                    <a href="https://frontend-mp2.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
-                                    <a href="https://github.com/ravipatelctf/frontend-mp2" className="text-decoration-none text-white">{`</>`} Code</a>
+                                    <a target="_blank" href="https://frontend-mp2.vercel.app/" className="text-decoration-none text-white">🔗 Demo</a>
+                                    <a target="_blank" href="https://github.com/ravipatelctf/frontend-mp2" className="text-decoration-none text-white">{`</>`} Code</a>
                                 </div>
                             </div>
                         </div>

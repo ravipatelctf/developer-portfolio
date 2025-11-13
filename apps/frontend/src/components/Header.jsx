@@ -3,6 +3,10 @@ import { FaSpotify } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+    const SERVER_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
+    function handleSpotifyLogin() {
+        window.location.href = `${SERVER_BASE_URL}/login`;
+    }
     return (
         <div className="container py-3 bg-black d-flex align-items-center justify-content-between">
             <Link to={`/`} className="text-decoration-none">
@@ -15,7 +19,7 @@ export default function Header() {
             </div>
             </Link>
             <div className="d-flex gap-2">
-                <Link to={`/spotify`} className="text-decoration-none text-white">
+                <Link onClick={handleSpotifyLogin} className="text-decoration-none text-white">
                     <FaSpotify size="1.5em" />
                 </Link>
                 <a href="https://github.com/ravipatelctf/developer-portfolio" target="_blank"><FaGithub size={25} color="white" /></a>
