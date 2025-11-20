@@ -14,6 +14,7 @@ export default function Quiz() {
     }, [quizData]);
 
     async function handleGenerateQuizProblem() {
+        toast.info("Generating...")
         try {
             const response = await axios.get(`${import.meta.env.VITE_SERVER_BASE_URL}/generate-gk-question`);
             setQuizData(response.data);
@@ -24,7 +25,7 @@ export default function Quiz() {
 
     function handleAnswerCheck(option) {
         if (option !== quizData.correctAnswer) {
-            toast.warn("wrong answer");
+            toast.error("wrong answer");
             setMessage(true)
             return;
         }

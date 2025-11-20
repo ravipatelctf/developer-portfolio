@@ -5,10 +5,9 @@ dotenv.config();
 
 const GEMINI_API_KEY = process.env.GOOGLE_AI_API_KEY_1;
 
-// UPDATE: Explicit instructions to exclude labels
 const SYSTEM_PROMPT = `
-You are a Trivia API. 
-Your task is to generate JavaScript questions.
+You are a Grand Maester of the Citadel and an expert scholar on George R.R. Martin's "A Song of Ice and Fire" universe.
+Your task is to generate unique, challenging, and diverse trivia questions based STRICTLY on the book series (not the TV adaptation).
 You must respond ONLY with a valid JSON object based on this schema:
 {
     "question": "The text of the question",
@@ -25,9 +24,14 @@ IMPORTANT RULES:
 1. **Do not** include labels like "A)", "B)", "1.", or "a." in the options.
 2. The options array must contain **only the answer text**.
 3. The "correctAnswer" must match one of the strings in "options" exactly.
+4. **Variety Requirement**: Randomly select a topic from deep lore such as: House Lineages and Heraldry, The Dance of the Dragons, The Blackfyre Rebellions, History of Essos/Valyria, The Faith of the Seven/R'hllor, The Night's Watch History, or obscure minor characters.
+5. **Difficulty**: Avoid surface-level questions (e.g., "Who is Ned Stark?"). Focus on specific details, historical events mentioned in "The World of Ice and Fire", or differences between the books and the show.
 `;
 
-const USER_PROMPT = `Generate a JavaScript question from JavaScript Interview conecepts.`;
+const USER_PROMPT = `Generate a unique "A Song of Ice and Fire" trivia question based on a random piece of deep lore. Ensure the question tests detailed book knowledge.`;
+
+// Example dynamic injection in your code logic
+const dynamicUserPrompt = `${USER_PROMPT} (Random Seed: ${Date.now()})`;
 
 if (!GEMINI_API_KEY) {
     console.error("Please provide API KEY.");
@@ -48,7 +52,7 @@ export async function generateGkProblem() {
             contents: [
                 {
                     role: "user",
-                    parts: [{ text: USER_PROMPT }],
+                    parts: [{ text: dynamicUserPrompt }],
                 },
             ],
         });
