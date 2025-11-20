@@ -18,11 +18,12 @@ export default function Header() {
                 <span className="text-success fw-bold fs-4">{`]`}</span>
             </div>
             </Link>
-            <div className="d-flex gap-2">
+            <div className="d-flex gap-2 align-items-center">
                 <Link onClick={handleSpotifyLogin} className="text-decoration-none text-white">
                     <FaSpotify size="1.5em" />
                 </Link>
                 <a href="https://github.com/ravipatelctf/developer-portfolio" target="_blank"><FaGithub size={25} color="white" /></a>
+                <Link to="/quiz" className="text-decoration-none text-white fw-bold btn btn-outline-dark btn-sm">Quiz</Link>
             </div>
         </div>
     )

@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
 
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import querystring from "querystring";
 import axios from "axios";
 import cookies from "cookie-parser";
+import { generateGkProblem } from "./quiz.js";
 
-dotenv.config();
+
 const app = express();
 app.use(cors({
   origin: process.env.FRONTEND_URL,
@@ -151,6 +153,20 @@ app.get('/top-tracks', async (req, res) => {
     console.error(error);
   }
 });
+
+
+// ---------------------------------------------------------------------------
+
+app.get('/generate-gk-question', async (req, res) => {
+  try {
+    const response = await generateGkProblem();
+    res.status(200).json(response);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// ---------------------------------------------------------------------------
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT:${PORT}`);
