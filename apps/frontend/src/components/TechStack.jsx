@@ -1,143 +1,90 @@
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
 
-import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub } from "react-icons/fa";
-import { 
-  SiNextdotjs, 
-  SiRedux, 
-  SiTailwindcss, 
-  SiBootstrap, 
-  SiExpress, 
-  SiJsonwebtokens, 
-  SiMongodb, 
-  SiMongoose, 
-  SiFlask, 
-  SiSqlalchemy, 
-  SiPostgresql, 
-  SiVercel, 
-  SiRailway, 
-  SiSupabase, 
-  SiTypescript
+import {
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  SiBootstrap,
+  SiExpress,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiMongoose,
+  SiFlask,
+  SiSqlalchemy,
+  SiPostgresql,
+  SiVercel,
+  SiRailway,
+  SiSupabase,
+  SiTypescript,
 } from "react-icons/si";
 
-
-function SkillCard({children, logoLabel}) {
-    return (
-        <div className="col-md-3 col-6 d-flex align-items-center gap-3 py-4">
-            <span>{children}</span>
-            <span className="text-white fs-5">{logoLabel}</span>
-        </div>
-    )
+function SkillCard({ children, logoLabel }) {
+  return (
+    <div
+      className="flex flex-col sm:flex-row sm:items-center 
+                 gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg 
+                 bg-neutral-900 hover:bg-neutral-800 transition-all
+                 text-center sm:text-left"
+    >
+      <span className="flex justify-center sm:justify-start">{children}</span>
+      <span className="text-white text-base sm:text-lg font-medium">
+        {logoLabel}
+      </span>
+    </div>
+  );
 }
 
 export default function TechStack() {
-    return (
-        <div className="container py-5 my-5">
-            <section>
-                <h1 className="text-white display-4 fw-bold">Tech Stack</h1>
-                <p className="text-white-50 fs-5">Technologies and tools I work with</p>
-                <div className="border border-2 border-success w-25 my-4"></div>
-                <div className="row">
-                    {/* React */}
-                    <SkillCard logoLabel="React">
-                    <FaReact size={25} color="white" />
-                    </SkillCard>
+  return (
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <h1 className="text-white text-4xl sm:text-5xl font-extrabold">
+        Tech Stack
+      </h1>
 
-                    {/* Next.js */}
-                    <SkillCard logoLabel="Next.js">
-                    <SiNextdotjs size={25} color="white" />
-                    </SkillCard>
+      <p className="text-gray-300 text-base sm:text-lg mt-3">
+        Technologies and tools I work with
+      </p>
 
-                    {/* Redux */}
-                    <SkillCard logoLabel="Redux">
-                    <SiRedux size={25} color="white" />
-                    </SkillCard>
+      <div className="border-2 border-green-500 w-20 sm:w-24 my-6"></div>
 
-                    {/* Tailwind CSS */}
-                    <SkillCard logoLabel="Tailwind CSS">
-                    <SiTailwindcss size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Bootstrap */}
-                    <SkillCard logoLabel="Bootstrap">
-                    <SiBootstrap size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Node.js */}
-                    <SkillCard logoLabel="Node.js">
-                    <FaNodeJs size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Express */}
-                    <SkillCard logoLabel="Express">
-                    <SiExpress size={25} color="white" />
-                    </SkillCard>
-
-                    {/* JWT */}
-                    <SkillCard logoLabel="JWT">
-                    <SiJsonwebtokens size={25} color="white" />
-                    </SkillCard>
-
-                    {/* MongoDB */}
-                    <SkillCard logoLabel="MongoDB">
-                    <SiMongodb size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Mongoose */}
-                    <SkillCard logoLabel="Mongoose">
-                    <SiMongoose size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Python */}
-                    <SkillCard logoLabel="Python">
-                    <FaPython size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Flask */}
-                    <SkillCard logoLabel="Flask">
-                    <SiFlask size={25} color="white" />
-                    </SkillCard>
-
-                    {/* SQLAlchemy */}
-                    <SkillCard logoLabel="SQLAlchemy">
-                    <SiSqlalchemy size={25} color="white" />
-                    </SkillCard>
-
-                    {/* PostgreSQL */}
-                    <SkillCard logoLabel="PostgreSQL">
-                    <SiPostgresql size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Vercel */}
-                    <SkillCard logoLabel="Vercel">
-                    <SiVercel size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Railway */}
-                    <SkillCard logoLabel="Railway">
-                    <SiRailway size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Supabase */}
-                    <SkillCard logoLabel="Supabase">
-                    <SiSupabase size={25} color="white" />
-                    </SkillCard>
-
-                    {/* Git */}
-                    <SkillCard logoLabel="Git">
-                    <FaGitAlt size={25} color="white" />
-                    </SkillCard>
-
-                    {/* GitHub */}
-                    <SkillCard logoLabel="GitHub">
-                    <FaGithub size={25} color="white" />
-                    </SkillCard>
-
-                    {/* TypeScript */}
-                    <SkillCard logoLabel="TypeScript">
-                    <SiTypescript size={25} color="white" />
-                    </SkillCard>
-
-                </div>
-            </section>
-        </div>
-    );
+      {/* Responsive Auto-Fit Grid */}
+      <div
+        className="
+          grid 
+          grid-cols-2
+          sm:grid-cols-3 
+          md:grid-cols-4 
+          lg:grid-cols-5
+          gap-4 sm:gap-6
+        "
+      >
+        <SkillCard logoLabel="React"><FaReact size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Next.js"><SiNextdotjs size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Redux"><SiRedux size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Tailwind CSS"><SiTailwindcss size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Bootstrap"><SiBootstrap size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Node.js"><FaNodeJs size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Express"><SiExpress size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="JWT"><SiJsonwebtokens size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="MongoDB"><SiMongodb size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Mongoose"><SiMongoose size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Python"><FaPython size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Flask"><SiFlask size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="SQLAlchemy"><SiSqlalchemy size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="PostgreSQL"><SiPostgresql size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Vercel"><SiVercel size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Railway"><SiRailway size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Supabase"><SiSupabase size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="Git"><FaGitAlt size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="GitHub"><FaGithub size={28} color="white" /></SkillCard>
+        <SkillCard logoLabel="TypeScript"><SiTypescript size={28} color="white" /></SkillCard>
+      </div>
+    </section>
+  );
 }
