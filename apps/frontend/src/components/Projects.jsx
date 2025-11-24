@@ -1,5 +1,5 @@
 export default function Projects() {
-    const techStack = ["React", "Node.js", "MongoDB", "Stripe"];
+    const techStack = ["React", "Node.js", "MongoDB", "Express.js"];
 
     const cardClasses =
         "bg-neutral-900 rounded-xl overflow-hidden shadow-lg " +
